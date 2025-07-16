@@ -31,11 +31,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    nativeLanguage: {
+    expertiseCourse: {
       type: String,
       default: "",
     },
-    learningLanguage: {
+    learningCourse: {
       type: String,
       default: "",
     },

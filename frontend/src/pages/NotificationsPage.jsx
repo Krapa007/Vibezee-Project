@@ -80,10 +80,10 @@ const NotificationsPage = () => {
                               </h3>
                               <div className="flex flex-wrap gap-1.5 mt-1">
                                 <span className="badge badge-secondary badge-sm">
-                                  Native: {request.sender.nativeLanguage}
+                                  Native: {request.sender.expertiseCourse}
                                 </span>
                                 <span className="badge badge-outline badge-sm">
-                                  Learning: {request.sender.learningLanguage}
+                                  Learning: {request.sender.learningCourse}
                                 </span>
                               </div>
                             </div>

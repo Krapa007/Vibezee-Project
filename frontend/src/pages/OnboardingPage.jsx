@@ -4,7 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { completeOnboarding } from "../lib/api";
 import { LoaderIcon, MapPin, Rocket, ShuffleIcon, Camera } from "lucide-react";
-import { LANGUAGES } from "../constants";
+import { COURSES } from "../constants";
 
 const OnboardingPage = () => {
   const { authUser } = useAuthUser();
@@ -13,8 +13,8 @@ const OnboardingPage = () => {
   const [formState, setFormState] = useState({
     fullName: authUser?.fullName || "",
     bio: authUser?.bio || "",
-    nativeLanguage: authUser?.nativeLanguage || "",
-    learningLanguage: authUser?.learningLanguage || "",
+    expertiseCourse: authUser?.expertiseCourse || "",
+    learningCourse: authUser?.learningCourse || "",
     location: authUser?.location || "",
     profilePic: authUser?.profilePic || "",
   });
@@ -122,21 +122,21 @@ const OnboardingPage = () => {
               {/* NATIVE LANGUAGE */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Native Language</span>
+                  <span className="label-text">Expertise Course</span>
                 </label>
                 <select
-                  name="nativeLanguage"
-                  value={formState.nativeLanguage}
+                  name="expertiseCourse"
+                  value={formState.expertiseCourse}
                   onChange={(e) =>
                     setFormState({
                       ...formState,
-                      nativeLanguage: e.target.value,
+                      expertiseCourse: e.target.value,
                     })
                   }
                   className="select select-bordered w-full"
                 >
-                  <option value="">Select your native language</option>
-                  {LANGUAGES.map((lang) => (
+                  <option value="">Select your expertise course</option>
+                  {COURSES.map((lang) => (
                     <option key={`native-${lang}`} value={lang.toLowerCase()}>
                       {lang}
                     </option>
@@ -150,18 +150,18 @@ const OnboardingPage = () => {
                   <span className="label-text">Learning Language</span>
                 </label>
                 <select
-                  name="learningLanguage"
-                  value={formState.learningLanguage}
+                  name="learningCourse"
+                  value={formState.learningCourse}
                   onChange={(e) =>
                     setFormState({
                       ...formState,
-                      learningLanguage: e.target.value,
+                      learningCourse: e.target.value,
                     })
                   }
                   className="select select-bordered w-full"
                 >
                   <option value="">Select language you're learning</option>
-                  {LANGUAGES.map((lang) => (
+                  {COURSES.map((lang) => (
                     <option key={`learning-${lang}`} value={lang.toLowerCase()}>
                       {lang}
                     </option>

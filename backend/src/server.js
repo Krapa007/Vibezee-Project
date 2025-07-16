@@ -6,7 +6,6 @@ import cors from "cors";
 import session from "express-session";
 import passport from "passport";
 
-
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import chatRoutes from "./routes/chat.route.js";
@@ -15,7 +14,7 @@ import "./lib/passport.js";
 import { connectDB } from "./lib/db.js";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 7000;
 // const __dirname = path.resolve();
 
 // Session middleware
@@ -33,7 +32,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: process.env.FRONT_END_URL,
+    origin: "http://localhost:5173",
     credentials: true, // allow frontend to send cookies
   })
 );

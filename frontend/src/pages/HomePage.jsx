@@ -9,7 +9,7 @@ import { capitialize } from "../lib/utils";
 import { CheckCircleIcon, MapPinIcon, UserPlusIcon } from "lucide-react";
 import toast from "react-hot-toast";
 
-import FriendCard, { GetLanguageFlag } from "../components/FriendCard";
+import FriendCard, { GetCourseEmoji } from "../components/FriendCard";
 
 const HomePage = () => {
   const queryClient = useQueryClient();
@@ -110,12 +110,12 @@ const HomePage = () => {
 
                       <div className="flex flex-wrap gap-1.5">
                         <span className="badge badge-secondary">
-                          {GetLanguageFlag(user.nativeLanguage)}
-                          Native: {capitialize(user.nativeLanguage)}
+                          {GetCourseEmoji(user.expertiseCourse)}
+                          Native: {capitialize(user.expertiseCourse)}
                         </span>
                         <span className="badge badge-outline">
-                          {GetLanguageFlag(user.learningLanguage)}
-                          Learning: {capitialize(user.learningLanguage)}
+                          {GetCourseEmoji(user.learningCourse)}
+                          Learning: {capitialize(user.learningCourse)}
                         </span>
                       </div>
 
