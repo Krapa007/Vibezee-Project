@@ -1,19 +1,19 @@
 {
- "version": 2,
- "builds": [
- {
- "src": "server.js",
- "use": "@vercel/node"
- }
- ],
- "routes": [
- {
- "src": "/api/(.*)",
- "dest": "server.js"
- }
- ],
- "env": {
- "DATABASE_URL": "@database_url",
- "API_KEY": "@api_key"
- }
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "mongodb+srv://krapakalyan:fvRmeWvi9akkFkvQ@cluster0.vktb89l.mongodb.net/konvo_db?retryWrites=true&w=majority&appName=Cluster0",
+    "API_KEY": "sxgbgwkpgyvr"
+  }
 }
