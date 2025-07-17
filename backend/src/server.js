@@ -30,8 +30,22 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+const allowedOrigins = [
+  "http://localhost:5173", // local dev
+  "https://vibezee.vercel.app", // your Vercel production frontend
+];
+
 app.use(
-  cors({ origin: "https://vibezee.vercel.app", credentials: true })
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
 );
 
 app.use(express.json());
