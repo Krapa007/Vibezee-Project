@@ -31,13 +31,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 const allowedOrigins = [
-  "http://localhost:5173", // local dev
-  "https://vibezee.vercel.app", // your Vercel production frontend
+  "http://localhost:5173",
+  "https://vibezee.vercel.app",
 ];
 
 app.use(
   cors({
-    origin: (origin, callback) => {
+    origin: function (origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
