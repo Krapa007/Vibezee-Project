@@ -32,7 +32,7 @@ app.use(passport.session());
 
 app.use(
   cors({
-    origin: "http://localhost:5173" || "",
+    origin: ["http://localhost:5173","https://vibezee-frontend.vercel.app/logins" ],
     credentials: true, // allow frontend to send cookies
   })
 );
