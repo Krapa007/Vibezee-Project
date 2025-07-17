@@ -30,7 +30,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-import cors from "cors";
 
 const allowedOrigins = ["http://localhost:5173", "https://vibezee.vercel.app"];
 
