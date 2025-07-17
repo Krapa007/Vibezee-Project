@@ -47,8 +47,8 @@ router.get(
     });
 
     const redirectTo = user.isOnboarded
-      ? "https://vibezee-jlh9.onrender.com"
-      : "https://vibezee-jlh9.onrender.com/onboarding";
+      ? "https://vibezee.vercel.app"
+      : "https://vibezee.vercel.app/onboarding";
 
     return res.redirect(redirectTo);
   }

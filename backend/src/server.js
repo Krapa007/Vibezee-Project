@@ -31,7 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(
-  cors({ origin: "https://vibezee-jlh9.onrender.com", credentials: true })
+  cors({ origin: "https://vibezee.vercel.app", credentials: true })
 );
 
 app.use(express.json());
