@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAuthUser } from "../lib/api";
-import React from "react";
 
 const useAuthUser = () => {
   //tenstack query
