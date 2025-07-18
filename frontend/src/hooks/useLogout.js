@@ -12,10 +12,14 @@ const useLogout = () => {
     error,
   } = useMutation({
     mutationFn: logout,
-    onSuccess: () => queryClient.clear(), // clear all cached data
-      navigate("/login");  // redirect to login or home
+    onSuccess: () => {
+      queryClient.clear();
+      navigate("/login");
+    },
   });
 
   return { logoutMutation, isPending, error };
 };
+
 export default useLogout;
+
