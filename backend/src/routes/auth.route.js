@@ -59,7 +59,7 @@ router.get("/google/logout", (req, res) => {
   req.logout((err) => {
     if (err)
       return res.status(500).json({ success: false, message: "Logout failed" });
-    res.redirect("https://vibezee-jlh9.onrender.com/login");
+    res.redirect("https://vibezee.vercel.app/login");
   });
 });
 

@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const { isPending, error, loginMutation } = useLogin();
 
-  const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleLogin = (e) => {
     e.preventDefault();

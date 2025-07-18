@@ -96,7 +96,7 @@ const OnboardingPage = () => {
                 onChange={(e) =>
                   setFormState({ ...formState, fullName: e.target.value })
                 }
-                className="input input-bordered w-full"
+                className="input input-bordered w-full mt-1.5"
                 placeholder="Your full name"
               />
             </div>
@@ -112,7 +112,7 @@ const OnboardingPage = () => {
                 onChange={(e) =>
                   setFormState({ ...formState, bio: e.target.value })
                 }
-                className="textarea textarea-bordered w-full h-24 resize-none focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-200"
+                className="textarea textarea-bordered w-full h-24 resize-none focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-200 mt-1.5"
                 placeholder="Tell others about yourself and your language learning goals"
               />
             </div>
@@ -133,7 +133,7 @@ const OnboardingPage = () => {
                       expertiseCourse: e.target.value,
                     })
                   }
-                  className="select select-bordered w-full"
+                  className="select select-bordered w-full mt-1.5"
                 >
                   <option value="">Select your expertise course</option>
                   {COURSES.map((lang) => (
@@ -158,7 +158,7 @@ const OnboardingPage = () => {
                       learningCourse: e.target.value,
                     })
                   }
-                  className="select select-bordered w-full"
+                  className="select select-bordered w-full mt-1.5"
                 >
                   <option value="">Select language you're learning</option>
                   {COURSES.map((lang) => (
@@ -189,7 +189,7 @@ const OnboardingPage = () => {
                   onChange={(e) =>
                     setFormState({ ...formState, location: e.target.value })
                   }
-                  className="input input-bordered w-full pl-10"
+                  className="input input-bordered w-full pl-10 mt-1.5"
                   placeholder="City, Country"
                 />
               </div>
