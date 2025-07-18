@@ -30,9 +30,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+// CORS Setup: Allow frontend origins
 const allowedOrigins = ["http://localhost:5173", "https://vibezee.vercel.app"];
-
+app.use((req, res, next) => {
+  console.log("CORS origin: ", req.headers.origin);
+  next();
+});
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -45,6 +48,9 @@ app.use(
     credentials: true,
   })
 );
+
+// Handle preflight OPTIONS
+app.options("*", cors());
 
 app.use(express.json());
 app.use(cookieParser());
