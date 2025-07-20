@@ -47,8 +47,8 @@ router.get(
     });
 
     const redirectTo = user.isOnboarded
-      ? "http://localhost:5173/"
-      : "http://localhost:5173/onboarding";
+      ? "https://vibezee-frontend.onrender.com/"
+      : "https://vibezee-frontend.onrender.com/onboarding";
 
     return res.redirect(redirectTo);
   }
@@ -59,7 +59,7 @@ router.get("/google/logout", (req, res) => {
   req.logout((err) => {
     if (err)
       return res.status(500).json({ success: false, message: "Logout failed" });
-    res.redirect("http://localhost:5173/login");
+    res.redirect("https://vibezee-frontend.onrender.com/login");
   });
 });
 
