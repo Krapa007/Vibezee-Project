@@ -56,7 +56,7 @@ router.get(
     const redirectTo = user.isOnboarded
       ? `${FRONTEND_URL}/`
       : `${FRONTEND_URL}/onboarding`;
-
+    console.log("Redirecting to: ", redirectTo);
     return res.redirect(redirectTo);
   }
 );
