@@ -66,6 +66,7 @@ router.get("/google/logout", (req, res) => {
       httpOnly: true,
       sameSite: "None",
       secure: process.env.NODE_ENV === "production",
+      path: "/",
     });
 
     res.redirect(`${process.env.FRONT_END_URL}/login`);
