@@ -66,7 +66,7 @@ const LoginPage = () => {
             {/* Google Login Button */}
             <div className="w-full">
               <a
-                href="https://vibezee-backend.onrender.com/api/auth/google/callback"
+                href="https://vibezee-backend.onrender.com/api/auth/google"
                 className="btn btn-outline btn-neutral w-full flex items-center justify-center gap-3"
               >
                 <img

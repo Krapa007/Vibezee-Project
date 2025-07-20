@@ -24,13 +24,19 @@ router.get("/me", protectRoute, (req, res) => {
 //Google OAuth login
 router.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", {
+    scope: ["profile", "email"],
+    prompt: "select_account",
+  })
 );
 
 //Google OAuth callback
 router.get(
   "/google/callback",
-  passport.authenticate("google", { failureRedirect: "/login" }),
+  passport.authenticate("google", {
+    failureRedirect: "/login",
+    session: false,
+  }),
   async (req, res) => {
     const user = req.user;
 
