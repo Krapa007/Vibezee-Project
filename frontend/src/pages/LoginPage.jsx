@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const { isPending, error, loginMutation } = useLogin();
 
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidEmail = (email) => /\S+@\S+\.\S+/.test(email);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -66,7 +66,7 @@ const LoginPage = () => {
             {/* Google Login Button */}
             <div className="w-full">
               <a
-                href="https://vibezee.onrender.com/api/auth/google"
+                href="http://localhost:3000/api/auth/google"
                 className="btn btn-outline btn-neutral w-full flex items-center justify-center gap-3"
               >
                 <img

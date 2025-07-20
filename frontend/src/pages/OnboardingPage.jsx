@@ -13,8 +13,8 @@ const OnboardingPage = () => {
   const [formState, setFormState] = useState({
     fullName: authUser?.fullName || "",
     bio: authUser?.bio || "",
-    expertiseCourse: authUser?.expertiseCourse || "",
-    learningCourse: authUser?.learningCourse || "",
+    nativeLanguage: authUser?.nativeLanguage || "",
+    learningLanguage: authUser?.learningLanguage || "",
     location: authUser?.location || "",
     profilePic: authUser?.profilePic || "",
   });
@@ -122,20 +122,20 @@ const OnboardingPage = () => {
               {/* NATIVE LANGUAGE */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Expertise Course</span>
+                  <span className="label-text">Expertise Language</span>
                 </label>
                 <select
-                  name="expertiseCourse"
-                  value={formState.expertiseCourse}
+                  name="nativeLanguage"
+                  value={formState.nativeLanguage}
                   onChange={(e) =>
                     setFormState({
                       ...formState,
-                      expertiseCourse: e.target.value,
+                      nativeLanguage: e.target.value,
                     })
                   }
                   className="select select-bordered w-full mt-1.5"
                 >
-                  <option value="">Select your expertise course</option>
+                  <option value="">Select your expertise language</option>
                   {COURSES.map((lang) => (
                     <option key={`native-${lang}`} value={lang.toLowerCase()}>
                       {lang}
@@ -150,17 +150,17 @@ const OnboardingPage = () => {
                   <span className="label-text">Learning Language</span>
                 </label>
                 <select
-                  name="learningCourse"
-                  value={formState.learningCourse}
+                  name="learningLanguage"
+                  value={formState.learningLanguage}
                   onChange={(e) =>
                     setFormState({
                       ...formState,
-                      learningCourse: e.target.value,
+                      learningLanguage: e.target.value,
                     })
                   }
                   className="select select-bordered w-full mt-1.5"
                 >
-                  <option value="">Select language you're learning</option>
+                  <option value="">Select language your learning</option>
                   {COURSES.map((lang) => (
                     <option key={`learning-${lang}`} value={lang.toLowerCase()}>
                       {lang}
@@ -176,7 +176,7 @@ const OnboardingPage = () => {
                 <span className="label-text">Location</span>
               </label>
 
-              <div className="relative">
+              <div className="relative mt-1.5">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-black z-10">
                   <MapPin className="w-5 h-5 text-gray-600" />
                 </div>
@@ -189,7 +189,7 @@ const OnboardingPage = () => {
                   onChange={(e) =>
                     setFormState({ ...formState, location: e.target.value })
                   }
-                  className="input input-bordered w-full pl-10 mt-1.5"
+                  className="input input-bordered w-full pl-10"
                   placeholder="City, Country"
                 />
               </div>

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { COURSE_ICONS } from "../constants";
+import { COURSE_ICONS, COURSES } from "../constants";
 
 const FriendCard = ({ friend }) => {
   return (
@@ -15,12 +15,12 @@ const FriendCard = ({ friend }) => {
 
         <div className="flex flex-wrap gap-1.5 mb-3">
           <span className="badge badge-secondary text-xs">
-            {GetCourseEmoji(friend.expertiseCourse)}
-            Native: {friend.expertiseCourse}
+            {GetLanguageFlag(friend.nativeLanguage)}
+            Native: {friend.nativeLanguage}
           </span>
           <span className="badge badge-outline text-xs">
-            {GetCourseEmoji(friend.learningCourse)}
-            Learning: {friend.learningCourse}
+            {GetLanguageFlag(friend.learningLanguage)}
+            Learning: {friend.learningLanguage}
           </span>
         </div>
 
@@ -33,9 +33,9 @@ const FriendCard = ({ friend }) => {
 };
 export default FriendCard;
 
-export function GetCourseEmoji(course) {
-  if (!course) return null;
+export function GetLanguageFlag(COURSES) {
+  if (!COURSES) return null;
 
-  const emoji = COURSE_ICONS[course.toLowerCase()];
+  const emoji = COURSE_ICONS[COURSES.toLowerCase()];
   return <span className="mr-1">{emoji || "📘"}</span>;
 }

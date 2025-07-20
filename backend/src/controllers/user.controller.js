@@ -26,7 +26,7 @@ export async function getMyFriends(req, res) {
       .select("friends")
       .populate(
         "friends",
-        "fullName profilePic expertiseCourse learningCourse"
+        "fullName profilePic nativeLanguage learningLanguage"
       );
 
     res.status(200).json(user.friends);
@@ -69,9 +69,11 @@ export async function sendFriendRequest(req, res) {
     });
 
     if (existingRequest) {
-      return res.status(400).json({
-        message: "A friend request already exists between you and this user",
-      });
+      return res
+        .status(400)
+        .json({
+          message: "A friend request already exists between you and this user",
+        });
     }
 
     const friendRequest = await FriendRequest.create({
@@ -130,7 +132,7 @@ export async function getFriendRequests(req, res) {
       status: "pending",
     }).populate(
       "sender",
-      "fullName profilePic expertiseCourse learningCourse"
+      "fullName profilePic nativeLanguage learningLanguage"
     );
 
     const acceptedReqs = await FriendRequest.find({
@@ -152,7 +154,7 @@ export async function getOutgoingFriendReqs(req, res) {
       status: "pending",
     }).populate(
       "recipient",
-      "fullName profilePic expertiseCourse learningCourse"
+      "fullName profilePic nativeLanguage learningLanguage"
     );
 
     res.status(200).json(outgoingRequests);

@@ -42,13 +42,13 @@ router.get(
     res.cookie("jwt", token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "None",
+      sameSite: "strict",
       secure: process.env.NODE_ENV === "production",
     });
 
     const redirectTo = user.isOnboarded
-      ? "https://vibezee.vercel.app"
-      : "https://vibezee.vercel.app/onboarding";
+      ? "http://localhost:5173/"
+      : "http://localhost:5173/onboarding";
 
     return res.redirect(redirectTo);
   }
@@ -59,7 +59,7 @@ router.get("/google/logout", (req, res) => {
   req.logout((err) => {
     if (err)
       return res.status(500).json({ success: false, message: "Logout failed" });
-    res.redirect("https://vibezee.vercel.app/login");
+    res.redirect("http://localhost:5173/login");
   });
 });
 

@@ -6,6 +6,7 @@ import cors from "cors";
 import session from "express-session";
 import passport from "passport";
 
+
 import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import chatRoutes from "./routes/chat.route.js";
@@ -14,7 +15,7 @@ import "./lib/passport.js";
 import { connectDB } from "./lib/db.js";
 
 const app = express();
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 3000;
 // const __dirname = path.resolve();
 
 // Session middleware
@@ -30,25 +31,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// CORS Setup: Allow frontend origins
-const allowedOrigins = ["http://localhost:5173", "https://vibezee.vercel.app"];
-app.use((req, res, next) => {
-  console.log("CORS origin: ", req.headers.origin);
-  next();
-});
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
+    origin: process.env.FRONT_END_URL,
+    credentials: true, // allow frontend to send cookies
   })
 );
-
 
 app.use(express.json());
 app.use(cookieParser());
