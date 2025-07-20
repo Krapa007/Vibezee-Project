@@ -14,7 +14,6 @@ const router = express.Router();
 router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);
-
 router.post("/onboarding", protectRoute, onboard);
 
 // check if user is logged in
@@ -42,13 +41,15 @@ router.get(
     res.cookie("jwt", token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
-      sameSite: "strict",
+      sameSite: "None",
       secure: process.env.NODE_ENV === "production",
     });
 
+    const FRONTEND_URL = process.env.FRONT_END_URL;
+
     const redirectTo = user.isOnboarded
-      ? "https://vibezee-frontend.onrender.com/"
-      : "https://vibezee-frontend.onrender.com/onboarding";
+      ? `${FRONTEND_URL}/`
+      : `${FRONTEND_URL}/onboarding`;
 
     return res.redirect(redirectTo);
   }
@@ -57,9 +58,17 @@ router.get(
 // Logout via Google session
 router.get("/google/logout", (req, res) => {
   req.logout((err) => {
-    if (err)
+    if (err) {
       return res.status(500).json({ success: false, message: "Logout failed" });
-    res.redirect("https://vibezee-frontend.onrender.com/login");
+    }
+
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      sameSite: "None",
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    res.redirect(`${process.env.FRONT_END_URL}/login`);
   });
 });
 
