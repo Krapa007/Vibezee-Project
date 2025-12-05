@@ -59,7 +59,7 @@ npm run preview
 ---
 
 ## Project structure
-
+```
 Vibezee-Project/
 ├─ public/                # static assets, index.html
 ├─ src/
@@ -72,6 +72,7 @@ Vibezee-Project/
 ├─ .env                   # environment variables
 ├─ package.json
 └─ README.md
+```
 
 Adjust this to match your repo if naming differs.
 
