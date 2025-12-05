@@ -141,7 +141,6 @@ Deploy the dist/ folder to:
 Netlify example:
  - Build command: npm run build
  - Publish directory: dist
- - 
 ---
 
 ## Ideas & roadmap
@@ -161,6 +160,7 @@ Fork the repo
  - Create a branch: git checkout -b feat/your-feature
  - Commit: git commit -m "Add feature"
  - Push and open a PR
+ 
 Try to keep PRs focused and include screenshots for UI changes.
 
 ---
