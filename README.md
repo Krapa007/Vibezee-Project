@@ -81,7 +81,7 @@ Adjust this to match your repo if naming differs.
 ## Data format (users & chats)
 
 ## User object
-
+```
 {
   "id": "user-123",
   "username": "mia",
@@ -89,39 +89,39 @@ Adjust this to match your repo if naming differs.
   "learningLanguages": ["es"],
   "bio": "Learning Spanish for travel."
 }
-
+```
 ## Chat message
-
+```
 {
   "from": "user-123",
   "text": "Hola!",
   "timestamp": "2025-01-01T10:00:00Z"
 }
-
+```
 Place arrays of these in src/data/ (like users.json and messages.json), or replace them with API calls.
 
 ---
 
 ## Routing suggestions
-
+```
 / — home / list of matches
 /profile/:id — user profile
 /chat/:partnerId — chat screen
 (optional) /settings
-
+```
 Use react-router v6 with <Routes> and <Route>.
 
 ---
 
 ## Scripts (common)
-
+```
 Typical scripts:
 {
   "dev": "vite",
   "build": "vite build",
   "preview": "vite preview"
 }
-
+```
 Add linting/testing scripts later if needed.
 
 ---
