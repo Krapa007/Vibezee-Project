@@ -129,37 +129,38 @@ Add linting/testing scripts later if needed.
 ## Deployment
 
 Build with:
+```
 npm run build
-
+```
 Deploy the dist/ folder to:
-Netlify
-Vercel
-GitHub Pages
-Any static host
+ - Netlify
+ - Vercel
+ - GitHub Pages
+ - Any static host
 
 Netlify example:
-Build command: npm run build
-Publish directory: dist
-
+ - Build command: npm run build
+ - Publish directory: dist
+ - 
 ---
 
 ## Ideas & roadmap
 
-Real backend with authentication
-Matchmaking algorithm improvements
-Persist chat messages to a database
-Live presence (online/offline)
-Group chats or topic-based rooms
-Add ESLint, Prettier and automated tests
+ - Real backend with authentication
+ - Matchmaking algorithm improvements
+ - Persist chat messages to a database
+ - Live presence (online/offline)
+ - Group chats or topic-based rooms
+ - Add ESLint, Prettier and automated tests
 
 ---
 
 ## Contributing
 
 Fork the repo
-Create a branch: git checkout -b feat/your-feature
-Commit: git commit -m "Add feature"
-Push and open a PR
+ - Create a branch: git checkout -b feat/your-feature
+ - Commit: git commit -m "Add feature"
+ - Push and open a PR
 Try to keep PRs focused and include screenshots for UI changes.
 
 ---
